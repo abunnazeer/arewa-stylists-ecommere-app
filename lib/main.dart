@@ -7,7 +7,7 @@ void main() {
     debugShowCheckedModeBanner: false,
     initialRoute: '/',
     getPages: [
-      GetPage(name: '/', page: () => HomePage()),
+      GetPage(name: '/', page: () => const HomePage()),
     ],
   ));
 }

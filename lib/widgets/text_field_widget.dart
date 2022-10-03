@@ -2,8 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomTextFieldWidget extends GetView<GetxController> {
-  final kFillColor = Colors.white;
-  const CustomTextFieldWidget({Key? key}) : super(key: key);
+  // ignore: prefer_typing_uninitialized_variables
+  final fillColor;
+  final String hintText;
+  final IconData suffixIcon;
+  // ignore: prefer_typing_uninitialized_variables
+  final enabledBorder;
+  final bool isPassword;
+
+  const CustomTextFieldWidget(
+      {required this.enabledBorder,
+      required this.hintText,
+      required this.suffixIcon,
+      this.fillColor,
+      required this.isPassword,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,13 +25,12 @@ class CustomTextFieldWidget extends GetView<GetxController> {
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(left: 20),
           filled: true,
-          fillColor: kFillColor,
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: Colors.grey)),
-          suffixIcon: const Icon(Icons.search),
-          hintText: 'Search Arewa Stylists...',
+          fillColor: fillColor,
+          enabledBorder: enabledBorder,
+          suffixIcon: Icon(suffixIcon),
+          hintText: hintText,
           hintStyle: const TextStyle(color: Colors.grey)),
+      obscureText: isPassword,
     );
   }
 }
